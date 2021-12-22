@@ -1,0 +1,19 @@
+<input #name type="text"/>
+<h6></h6>
+<typeahead (imageSelect)="image=$event"></typeahead>
+<h6></h6>
+<button (click)="add(name.value,image)">Add</button>
+<h2>List:</h2>
+<ul *ngFor="let task of toDo; index as i">
+    <li>
+        <img *ngIf="task.image" [src]=task.image [alt]="task.image" [width]="50" [height]="50"/> {{task.task}}
+        <button (click)="remove(i,task)">Remove</button>
+        <button (click)="onClick(task)">modify</button>
+        <input *ngIf="task.modifing" [(ngModel)]="task.task" #newName type="text"/>
+        <typeahead *ngIf="task.modifing" (imageSelect)="task.image=$event"></typeahead>
+        <button *ngIf="task.modifing" (click)="change(i,task)">Change</button>
+    </li>
+</ul>
+<ul *ngFor="let task of toDoApi">
+    <li><img *ngIf="task.image" [src]=task.image [alt]="task.image" [width]="50" [height]="50"/> {{task.task}}</li>
+</ul>

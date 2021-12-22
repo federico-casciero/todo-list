@@ -1,0 +1,9 @@
+[
+    {"task": "Lavare i piatti", "image": ""},
+    {"task": "Fare la spesa", "image": ""},
+    {"task": "Pulire casa", "image": ""},
+    {"task": "Dar da mangiare al gatto", "image": ""},
+    {"task": "Fare i compiti", "image": ""},
+    {"task": "Mangiare", "image": ""},
+    {"task": "Dormire", "image": ""}
+]

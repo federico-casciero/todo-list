@@ -1,0 +1,9 @@
+<ng-template #rt let-r="result">
+       <img [src]="r" [width]="50" [height]="50">
+</ng-template>
+
+<input type="text"
+       [(ngModel)]="model"
+       [ngbTypeahead]="search"
+       [resultTemplate]="rt"
+       (selectItem)="selectMyItem($event)"/>
