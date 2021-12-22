@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { IImageApi } from './imageApiType';
-import { clientId } from './keys';
+import { IImageApi } from '../types/imageApiType';
+import { clientId } from '../keys';
 
 const _unsplashURL = 'https://api.unsplash.com/search/photos';
 const PARAMS = new HttpParams({

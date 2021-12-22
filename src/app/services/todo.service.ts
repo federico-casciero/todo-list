@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ToDo } from './todotype';
+import { ToDo } from '../types/todotype';
 import { HttpClient } from '@angular/common/http';
 import { ImageApiService } from './image-api.service';
 

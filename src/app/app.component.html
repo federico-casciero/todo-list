@@ -3,4 +3,9 @@
     Welcome to your {{title}}!
   </h1>
 </div>
-<app-todo></app-todo>
+<nav>
+  <input #username type="text">
+  <h6></h6>
+  <button (click)="login(username.value)" routerLink="/todoList">Login</button>
+</nav>
+<router-outlet></router-outlet>

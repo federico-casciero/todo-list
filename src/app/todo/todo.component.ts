@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from '../todotype';
-import { TodoService } from '../todo.service';
+import { ToDo } from '../types/todotype';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -34,7 +34,8 @@ export class TodoComponent implements OnInit {
       id: Math.random().toString().substring(2,16),
       task: task,
       image: image,
-      modifing: false
+      modifing: false,
+      username: ""
     }
     this.toDo.push(cosa);
     localStorage.setItem(cosa.id,JSON.stringify(cosa));

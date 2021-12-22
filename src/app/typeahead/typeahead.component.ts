@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable, OperatorFunction, switchMap } from 'rxjs';
-import { ImageApiService } from '../image-api.service';
+import { ImageApiService } from '../services/image-api.service';
 
 @Component({
   selector: 'typeahead',

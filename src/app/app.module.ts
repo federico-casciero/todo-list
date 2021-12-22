@@ -4,17 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoService } from './todo.service';
-import { TodoComponent } from './todo/todo.component';
-import { TypeaheadComponent } from './typeahead/typeahead.component';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent,
-    TypeaheadComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
