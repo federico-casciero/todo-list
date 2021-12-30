@@ -34,8 +34,7 @@ export class TodoComponent implements OnInit {
       id: Math.random().toString().substring(2,16),
       task: task,
       image: image,
-      modifing: false,
-      username: ""
+      modifing: false
     }
     this.toDo.push(cosa);
     localStorage.setItem(cosa.id,JSON.stringify(cosa));

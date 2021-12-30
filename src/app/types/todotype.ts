@@ -3,7 +3,6 @@ export interface ToDo {
     task: string;
     image: string;
     modifing: boolean;
-    username: string;
 }
 /*export interface IImage {
     name: string;
