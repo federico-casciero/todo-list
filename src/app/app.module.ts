@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
@@ -13,10 +13,15 @@ import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { googleClientId } from './keys';
+import { TodoReducer } from './todo/state/todo.reducer';
 
 const REDUCER = {
-  user: AuthReducer
+  user: AuthReducer,
+  tasks: TodoReducer
 }
+
 
 @NgModule({
   declarations: [
@@ -34,9 +39,27 @@ const REDUCER = {
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
-  providers: [TodoService],
+  providers: [
+    TodoService,
+    {
+      provide: "SocialAuthServiceConfig",
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              googleClientId
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

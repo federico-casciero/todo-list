@@ -8,10 +8,10 @@
     <li>
         <img *ngIf="task.image" [src]=task.image [alt]="task.image" [width]="50" [height]="50"/> {{task.task}}
         <button (click)="remove(i,task)">Remove</button>
-        <button (click)="onClick(task)">modify</button>
-        <input *ngIf="task.modifing" [(ngModel)]="task.task" #newName type="text"/>
-        <typeahead *ngIf="task.modifing" (imageSelect)="task.image=$event"></typeahead>
-        <button *ngIf="task.modifing" (click)="change(i,task)">Change</button>
+        <button (click)="onClick(task,i)">Modify</button>
+        <input *ngIf="isEditable(i)" [(ngModel)]="taskName" type="text"/>
+        <typeahead *ngIf="isEditable(i)" (imageSelect)="taskImage=$event"></typeahead>
+        <button *ngIf="isEditable(i)" (click)="change(i,task)">Change</button>
     </li>
 </ul>
 <ul *ngFor="let task of toDoApi">

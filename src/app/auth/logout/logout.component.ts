@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
+import { SocialAuthService } from "angularx-social-login";
 import { AppState } from "../../state/state";
 import { logout } from "../state/auth.actions";
 
@@ -11,7 +12,7 @@ import { logout } from "../state/auth.actions";
   })
   export class LogoutComponent implements OnInit {
   
-    constructor(private store: Store<AppState>, private router: Router) {}
+    constructor(private store: Store<AppState>, private router: Router, private authService: SocialAuthService) {}
   
     ngOnInit(): void {}
 
@@ -19,5 +20,10 @@ import { logout } from "../state/auth.actions";
       this.store.select("user");
       this.store.dispatch(logout());
       this.router.navigate(['login'])
+    }
+
+    googleSingOut(){
+      this.authService.signOut();
+      this.logout();
     }
   }

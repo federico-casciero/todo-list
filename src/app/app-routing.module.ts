@@ -9,7 +9,7 @@ import { TodoComponent } from './todo/todo.component';
 const routes: Routes = [
   { path: 'todoList', component: TodoComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent}
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
